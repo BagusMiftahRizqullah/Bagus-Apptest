@@ -8,28 +8,25 @@ const HomeScreen = ({navigation}) => {
     const [search, setSearch] = useState('')
     const [dataHomeSearch, setDataHomeSearch] = useState([])
     const [refreshing, setRefreshing] = useState(false);
+    const [DataContacts, setDataContacts] = useState([])
     
     const dispatch = useDispatch();
-    const DataContact = useSelector(state => {
-        console.log(state, '<===== ini state');
-        // ini aku tambahin untuk handling data pertama kali waktu masih null
-        if (
-          state.HomeReducer.dataContact != null &&
-          state.HomeReducer.dataContact.length > 0
-        ) {
-          return state.HomeReducer.dataContact
-        } else {
-          return [];
-        }
+    const DataContact = useSelector(state => state.HomeReducer.dataContact)
        
-      });
       console.log(DataContact, 'ini hasil data DataContact');
 
     useEffect(() => {
         dispatch(actionGetContact());
       }, [navigation]);
 
-      
+      useEffect(() => {
+       if(DataContact){
+        setDataContacts(DataContact)
+       }
+      }, [DataContact]);
+
+
+
       const onRefresh = useCallback(async () => {
         setRefreshing(true);
         await  dispatch(actionGetContact());
@@ -92,7 +89,7 @@ const HomeScreen = ({navigation}) => {
         showsVerticalScrollIndicator={false}>
         <View style={{marginBottom: 200}}>
           <FlatList
-            data={dataHomeSearch.length >0 ? dataHomeSearch : DataContact}
+            data={dataHomeSearch.length >0 ? dataHomeSearch : DataContacts ?? []}
             renderItem={(item)=> renderItem(item)}
             keyExtractor={item => item.id}
           />

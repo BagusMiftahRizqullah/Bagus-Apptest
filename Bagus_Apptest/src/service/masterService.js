@@ -18,5 +18,8 @@ export const putContactId = (id, body) => {
 };
 
 export const dellContactId = (id) => {
+
+  console.log("id DEll", id)
+
   return remove(`/contact/${id}`);
 };

@@ -1,6 +1,7 @@
 const initialState = {
     dataContact: [],
     dataContactDetail:{},
+    dataSuksesAdd:false,
 
   };
   
@@ -20,11 +21,13 @@ const initialState = {
         case 'ADD_CONTACT':
           return {
             ...state,
+            dataSuksesAdd: false
           };
     
         case 'Add_CONTACT_SUCCESS':
           return {
             ...state,
+            dataSuksesAdd: true
           };
 
           case 'GET_CONTACT_ID':
@@ -59,6 +62,12 @@ const initialState = {
                   ...state,
                   
                 };
+
+              case 'CLEAR_DATA':
+                  return {
+                    ...state,
+                    dataSuksesAdd: false
+                  };
   
       default:
         return state;

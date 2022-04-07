@@ -54,7 +54,7 @@ import { actionGetContactSuccess, actionAddContactSuccess, actionGetContactIdSuc
       });
 
       yield put(actionAddContactSuccess(addContact.data.data));
-    
+      
     } catch (error) {
       console.log("error",error)
       showMessage({
@@ -93,10 +93,10 @@ import { actionGetContactSuccess, actionAddContactSuccess, actionGetContactIdSuc
   }
 
   function* onDellContact(action) {
-    console.log("actionnyaaa", action)
+    console.log("actionnyaaa Dell", action)
     try {
       const dellIdContact = yield dellContactId(action.payload);
-      console.log('data id', dellIdContact)
+      console.log('data dell id', dellIdContact)
       showMessage({
         message: 'Berhasil',
         description: 'Berhasil menghapus data',

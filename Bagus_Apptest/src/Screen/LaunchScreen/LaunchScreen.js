@@ -9,7 +9,7 @@ const LaunchScreen = ({navigation}) => {
     const checkWelcome = async () => {
         setTimeout(() => {
           navigation.replace('Home');
-        }, 3000);
+        }, 2000);
       };
 
       useEffect(() => {

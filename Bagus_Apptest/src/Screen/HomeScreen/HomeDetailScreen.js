@@ -36,7 +36,7 @@ const HomeDetailScreen = (props, {navigation}) => {
           <View style={styles.circle}>
           <Image
               style={styles.icon}
-              source={DataContactDetail.photo.includes('jpg') ? {uri: DataContactDetail.photo}: require('@images/default_pp_acount.png') }
+              source={DataContactDetail?.photo?.includes('jpg') ? {uri: DataContactDetail.photo}: require('@images/default_pp_acount.png') }
             />
           </View>
           <View style={{flexDirection: 'row'}}>

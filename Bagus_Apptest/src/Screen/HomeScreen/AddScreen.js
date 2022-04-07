@@ -9,6 +9,7 @@ import {
     TouchableOpacity,
     PermissionsAndroid,
     Modal,
+    Alert,
  } from 'react-native'
 import {Formik} from 'formik';
 // import {NavNavigate} from '../../Components/NavNavigate/NavNavigate';
@@ -28,7 +29,7 @@ const AddScreen = (props, {navigation}) => {
     const [zoomPhoto, setZoomPhoto] = useState(false)
     const [resultPhoto, setResultPhoto] = useState(null)
 
-
+    const addContactResponse = useSelector(state => state.HomeReducer.dataSuksesAdd)
 
     useEffect(() => {
      if(props.route.params?.photo){
@@ -38,6 +39,14 @@ const AddScreen = (props, {navigation}) => {
       setResultPhoto(null)
      }
     }, [])
+
+    useEffect(() => {
+      if(addContactResponse == true){
+        // Alert('masuk true')
+        props.navigation.goBack()
+        dispatch({type :'CLEAR_DATA'})
+      }
+     }, [addContactResponse])
     
 
     const openCamera = async () => {
