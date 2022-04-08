@@ -96,7 +96,6 @@ const AddScreen = (props, {navigation}) => {
       }
 
       const onSubmit = async values => {
-        // const namePros = listProspek.filter(a => a.id == selectProspek);
         console.log('datassSUBMITE', resultPhoto);
             if(
                 values.firstName == '' ||
@@ -179,6 +178,7 @@ const AddScreen = (props, {navigation}) => {
                 style={styles.icons}
               /> */}
               <TextInput
+                style={{color: '#000000'}}
                 placeholder="First Name"
                 value={values.firstName}
                 onBlur={() => setFieldTouched('firstName')}
@@ -193,6 +193,7 @@ const AddScreen = (props, {navigation}) => {
                 style={styles.icons}
               /> */}
               <TextInput
+                style={{color: '#000000'}}
                 placeholder="Last Name"
                 value={values.lastName}
                 onBlur={() => setFieldTouched('lastName')}
@@ -208,6 +209,7 @@ const AddScreen = (props, {navigation}) => {
                 style={styles.icons}
               /> */}
               <TextInput
+                style={{color: '#000000'}}
                 placeholder="Age"
                 keyboardType="number-pad"
                 value={values.age}
@@ -326,6 +328,7 @@ const styles = StyleSheet.create({
         color: '#000000',
       },
       textInputWrapper: {
+        color:'#000000',
         flexDirection: 'row',
         alignItems: 'center',
         borderRadius: 5,
