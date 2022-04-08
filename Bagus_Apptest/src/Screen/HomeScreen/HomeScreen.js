@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 14,
       },
       textInput: {
-        fontFamily: '#000000',
+        color: '#000000',
         fontSize: 10,
         marginLeft: 17,
         width: '100%',
